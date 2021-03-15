@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/widgets/Header';
+import SideBar from './components/widgets/SideBar';
+import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
+
+// manipulating default theming colours in material UI according to design
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#4C87FB"
+    },
+    background: {
+      default: "#F5F6F8"
+    },
+    action: {
+      active: "rgba(255, 0, 0, 0.04)",
+      hover: "rgba(0, 255, 0, 0.04)",
+      selected: "rgba(0, 0, 255, 0.04)",
+      focus: "rgba(0, 33, 122, 0.04)",
+    }
+  }
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      {/* rendering ccomponents */}
+      <Header />
+      <SideBar />
+      {/* normalising CSS */}
+      <CssBaseline />
+    </ThemeProvider>
+
   );
 }
 
